@@ -11,7 +11,7 @@ namespace GraphQLSample.Web
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Author のシードデータ
-            var authorId = 1;
+            int authorId = 1;
             modelBuilder.Entity<Author>().HasData(
                 new Author { Id = authorId, Name = "芥川龍之介" }
             );
