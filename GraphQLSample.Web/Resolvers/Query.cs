@@ -1,4 +1,6 @@
-namespace GraphQLSample.Web.Types
+using GraphQLSample.Web.Models;
+
+namespace GraphQLSample.Web.Resolvers
 {
     [QueryType]
     public static class Query

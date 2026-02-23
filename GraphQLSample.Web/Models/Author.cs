@@ -1,4 +1,4 @@
-namespace GraphQLSample.Web.Types
+namespace GraphQLSample.Web.Models
 {
     public record Author
     {

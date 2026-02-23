@@ -1,4 +1,4 @@
-﻿using GraphQLSample.Web.Types;
+﻿using GraphQLSample.Web.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace GraphQLSample.Web
