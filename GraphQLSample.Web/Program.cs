@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // DbContextFactory を SQLite で登録
 builder.Services.AddDbContextFactory<ApplicationDbContext>(
@@ -12,13 +12,13 @@ builder.Services
     .RegisterDbContextFactory<ApplicationDbContext>()
     .AddTypes();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // 初回起動時にデータベースファイルを作成する場合（開発用）
-using (var scope = app.Services.CreateScope())
+using (IServiceScope scope = app.Services.CreateScope())
 {
-    var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<ApplicationDbContext>>();
-    using var context = factory.CreateDbContext();
+    IDbContextFactory<ApplicationDbContext> factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<ApplicationDbContext>>();
+    using ApplicationDbContext context = factory.CreateDbContext();
 
     if (app.Environment.IsDevelopment())
     {
